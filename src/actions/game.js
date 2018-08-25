@@ -1,4 +1,4 @@
-const {randomWord} = require( '../lib/game')
+const {randomWord, wrongGuessCount} = require( '../lib/game')
 
 const random = randomWord()
 
@@ -19,4 +19,13 @@ export function makeGuess(guess){
         type: MAKE_GUESS,
         payload: guess
     }
+}
+
+export const UPDATE_COUNT = "UPDATE_COUNT"
+export function updateCount(word, guesses){
+  return{
+      type: UPDATE_COUNT,
+      payload: 5 //wrongGuessCount(word, guesses)
+      
+  }
 }
