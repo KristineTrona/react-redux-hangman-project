@@ -30,11 +30,11 @@ handleSubmit = (event) => {
       <div>
       <form className = "newGuess" onSubmit={this.handleSubmit} >
           <label> Make a new guess:
-            <input placeholder = "enter a letter" type="text" maxLength="1" name="guess" value={this.props.guess} onChange={this.handleChange}/>
+            <input className = "letterInput" placeholder = "enter a letter" type="text" maxLength="1" name="guess" value={this.props.guess} onChange={this.handleChange}/>
           </label>
-          <button type="submit">Submit</button>
+          <button className = "submitButton" type="submit">Submit</button>
       </form>
-      <button onClick = {this.startNewGame} >New Game</button>
+      <button className = "newGame" onClick = {this.startNewGame} >New Game</button>
       </div>
     )
   }

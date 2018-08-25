@@ -8,8 +8,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Route exact match path={"/"} component= {LandingPage}/>
-      <Route path= "/hangman:id" component= {HangmanContainer} />
+        <Route exact match path={"/"} component= {LandingPage}/>
+        <Route path= "/hangman:id" component= {HangmanContainer} />
       </div>
     );
   }
