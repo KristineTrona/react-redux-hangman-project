@@ -6,13 +6,6 @@ import {connect} from 'react-redux';
 import {newGame, makeGuess} from '../actions/game'
 const {showGuess, wrongGuessCount, isWinner, gameFinished } = require( '../lib/game')
 
-// const isWinner = (word, guesses) => {
-//   return showGuess(word, guesses) === word.split('').join(' ')
-// }
-
-// const gameFinished = (word, guesses) => {
-//   return (wrongGuessLimit(word, guesses) || isWinner(word, guesses))
-// }
 
 class HangmanContainer extends React.PureComponent {
 
@@ -21,9 +14,9 @@ class HangmanContainer extends React.PureComponent {
         this.props.newGame()
       }
     }
+    
 
   handleWinOrLose = () => {
-
     if(isWinner(this.props.game.word,this.props.game.guesses) === true){
       return "Congratulations, you won!"
     } else if (gameFinished(this.props.game.word,this.props.game.guesses) === true) {
@@ -31,23 +24,20 @@ class HangmanContainer extends React.PureComponent {
     }
   }
 
+
   render() {
-    const state = wrongGuessCount(this.props.game.word, this.props.game.guesses)
-    return (
-    <div>
-      <Hangman
-       // hangman = {hangman.drawLevel(wrongGuessCount(this.props.game.word, this.props.game.guesses), 'magenta')} 
-        word={showGuess(this.props.game.word, this.props.game.guesses)}
-        guesses = {this.props.game.guesses}
-        wrongGuesses={state}
-        tries = {state <= 6 ? 6-state : 0}
-      />
-      <NewGuess/>
-      <Winner message = {this.handleWinOrLose()}/>
-    </div>)
-  
-  }
-    
+    const gameStatus = wrongGuessCount(this.props.game.word, this.props.game.guesses)
+      return (
+        <div className = "hangman-container">
+          <Hangman
+            word={showGuess(this.props.game.word, this.props.game.guesses)}
+            guesses = {this.props.game.guesses}
+            wrongGuesses={gameStatus}
+            tries = {gameStatus <= 6 ? 6-gameStatus : 0}/>
+          <NewGuess/>
+          <Winner message = {this.handleWinOrLose()}/>
+        </div>)
+      }   
 }
 
 const mapStateToProps = (state) => ({
