@@ -1,28 +1,24 @@
-export const showGuess = (word, guesses) => {
+  const showGuess = (word, guesses) => {
     return word.split('').map(letter => (guesses.indexOf(letter) < 0) ? "_" : letter).join(" ");
   }
-  
-  export const wrongGuessCount = (word, guesses) => {
+
+  const wrongGuessCount = (word, guesses) => {
     return guesses.filter(guess => word.indexOf(guess) < 0).length
   }
   
-  export const wrongGuessLimit = (word, guesses) => {
+  const wrongGuessLimit = (word, guesses) => {
     return guesses.filter(guess => word.indexOf(guess) < 0).length >= 6
   }
   
-  export const isWinner = (word, guesses) => {
+  const isWinner = (word, guesses) => {
     return showGuess(word, guesses) === word.split('').join(' ')
   }
   
-  export const gameFinished = (word, guesses) => {
+  const gameFinished = (word, guesses) => {
     return (wrongGuessLimit(word, guesses) || isWinner(word, guesses))
   }
 
-  export const randomWord = () => {
-    return wordList[Math.floor(Math.random() * wordList.length)]
-  }
-  
-  export const wordList = [
+  const wordList = [
     // Borrowed from xkcd password generator which borrowed it from wherever
     "ability","able","aboard","about","above","accept","accident","according",
     "account","accurate","acres","across","act","action","active","activity",
@@ -269,3 +265,10 @@ export const showGuess = (word, guesses) => {
     "year","yellow","yes","yesterday","yet","you","young","younger",
     "your","yourself","youth","zero","zebra","zipper","zoo","zulu"
   ];
+
+  const randomWord = () => {
+    return wordList[Math.floor(Math.random() * wordList.length)]
+  }
+
+
+  module.exports = {showGuess, wrongGuessCount, wrongGuessLimit, isWinner, gameFinished, wordList, randomWord}
