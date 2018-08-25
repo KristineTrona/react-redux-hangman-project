@@ -1,13 +1,12 @@
 const {randomWord} = require( '../lib/game')
 
-const random = randomWord()
 
 export const NEW_GAME = 'NEW_GAME' 
 export function newGame() {
     return {
       type: NEW_GAME,
       payload: {
-        word: random,
+        word: randomWord(),
         guesses: []}
     }
   }
