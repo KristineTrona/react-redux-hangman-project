@@ -14,7 +14,7 @@ class HangmanContainer extends React.PureComponent {
       if(this.props.game.word===""){
         this.props.newGame()
       }
-      }
+    }
   
   render() {
     
