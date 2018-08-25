@@ -1,8 +1,6 @@
 import * as React from 'react'
 import store from '../store'
-import {makeGuess, updateCount} from '../actions/game'
-//const {wrongGuessCount} = require( '../lib/game')
-
+import {makeGuess} from '../actions/game'
 
 export class NewGuess extends React.PureComponent {
   state = {
@@ -13,7 +11,6 @@ handleSubmit = (event) => {
     event.preventDefault()
       if(this.state.guess!==""){
         store.dispatch(makeGuess(this.state.guess.toLowerCase()))
-        store.dispatch(updateCount())
         event.target.reset()
       }
     }
@@ -23,10 +20,6 @@ handleSubmit = (event) => {
     this.setState({ guess: event.target.value })
     }
   }
-
-  // updateCount(){
-    
-  // }
 
   render() {
     console.log(this.state)
