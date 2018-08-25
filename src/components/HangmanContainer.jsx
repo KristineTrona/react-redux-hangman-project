@@ -15,14 +15,15 @@ class HangmanContainer extends React.PureComponent {
   
   render() {
     
-    return (<div>
-        <Hangman word={showGuess(this.props.game.word, this.props.game.guesses)}/>
-      
-        {/* <form>
-          <label>Guess: 
-            <input name="name" value = {this.state.value} onChange = {this.handleEvent}/>
+    return (
+    <div>
+      <Hangman word={showGuess(this.props.game.word, this.props.game.guesses)}/>
+        <form onSubmit={this.handleSubmit}>
+          <label> Make a new guess:
+            <input type="text"/>
           </label>
-        </form> */}
+          <button type="submit">Submit</button>
+        </form>
     </div>)
     }   
 }
