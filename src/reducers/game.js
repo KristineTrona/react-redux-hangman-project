@@ -6,10 +6,11 @@ const reducer = (state = {word: "", guesses:[]}, action = {}) => {
     case NEW_GAME:
       return {
         ...state,
-        word: action.payload.word
-      }
+        word: action.payload.word}
     case MAKE_GUESS:
-      return [state, action.payload]
+      const clone = {...state}
+      clone.guesses = [action.payload]
+      return clone
     default:
       return state
   }
