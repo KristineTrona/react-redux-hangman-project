@@ -1,11 +1,9 @@
 import * as React from 'react'
 
-export default class Hangman extends React.PureComponent{
-  render (){
+export default function hangman (props){
     return (
       <div>
-      
+        <p>{props.word}</p>
       </div>
     )
   }
-}

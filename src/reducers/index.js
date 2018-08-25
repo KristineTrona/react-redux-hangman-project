@@ -1,12 +1,6 @@
-import {NEW_GAME, MAKE_GUESS} from '../actions/game'
+import { combineReducers } from 'redux'
+import game from './game'
 
-
-const reducer = (state = [], action = {}) => {
-  switch (action.type) {
-
-  default:
-    return state
-  }
-}
-
-export default reducer
+export default combineReducers({
+  game
+})
