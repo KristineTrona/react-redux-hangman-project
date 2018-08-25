@@ -2,6 +2,7 @@ import * as React from 'react'
 import Hangman from './Hangman'
 import {connect} from 'react-redux';
 import {newGame} from '../actions/game'
+const {showGuess} = require( '../lib/game')
 
 
 
@@ -11,11 +12,12 @@ class HangmanContainer extends React.PureComponent {
         this.props.newGame()
       }
         
-      
+  
   render() {
+    
     return (<div>
-        <Hangman word={"test"}/>
-
+        <Hangman word={showGuess(this.props.game.word, this.props.game.guesses)}/>
+      
         {/* <form>
           <label>Guess: 
             <input name="name" value = {this.state.value} onChange = {this.handleEvent}/>

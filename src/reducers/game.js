@@ -1,5 +1,5 @@
 import {NEW_GAME, MAKE_GUESS} from '../actions/game'
-
+//SHOW_GUESSED
 
 const reducer = (state = {word: "", guesses:[]}, action = {}) => {
   switch (action.type) {
@@ -9,7 +9,7 @@ const reducer = (state = {word: "", guesses:[]}, action = {}) => {
         word: action.payload.word
       }
     case MAKE_GUESS:
-      return [...state, {...action.payload}]
+      return [state, action.payload]
     default:
       return state
   }
