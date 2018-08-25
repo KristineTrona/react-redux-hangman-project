@@ -9,8 +9,10 @@ export class NewGuess extends React.PureComponent {
 
 handleSubmit = (event) => {
     event.preventDefault()
-    if(this.state.guess){
-     store.dispatch(makeGuess(this.state.guess))
+      if(this.state.guess!==""){
+        store.dispatch(makeGuess(this.state.guess))
+        event.target.reset()
+        
       }
     }
   
@@ -25,20 +27,10 @@ handleSubmit = (event) => {
     return (
       <form className = "newGuess" onSubmit={this.handleSubmit}>
           <label> Make a new guess:
-            <input type="text" name="guess" value={this.props.guess} onChange={this.handleChange}/>
+            <input placeholder = "enter a letter" type="text" name="guess" value={this.props.guess} onChange={this.handleChange}/>
           </label>
           <button type="submit">Submit</button>
       </form>
     )
   }
 }
-
-
-
-// const mapStateToProps = (state) => ({
-//   game: state.game
-// })
-
-
-// export default connect(mapStateToProps, {handleSubmit, makeGuess})(NewGuess)
-

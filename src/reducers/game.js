@@ -8,9 +8,10 @@ const reducer = (state = {word: "", guesses:[]}, action = {}) => {
         ...state,
         word: action.payload.word}
     case MAKE_GUESS:
-      const clone = {...state}
-      clone.guesses = [action.payload]
-      return clone
+      return{
+        ...state,
+        guesses: [...state.guesses, action.payload]
+      }
     default:
       return state
   }
