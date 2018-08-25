@@ -7,6 +7,7 @@ export default function hangman (props){
         <p>{props.word}</p>
         <p>You guessed: {props.guesses.map(guess => `${guess} ; `)}</p>
         <p>You have {props.wrongGuesses} wrong guesses</p>
+        <p>{props.tries} more tries left</p>
       </div>
     )
   }

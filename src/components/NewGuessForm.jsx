@@ -22,7 +22,6 @@ handleSubmit = (event) => {
   }
 
   render() {
-    console.log(this.state)
     return (
       <form className = "newGuess" onSubmit={this.handleSubmit} >
           <label> Make a new guess:
